@@ -17,7 +17,7 @@ const Login = () => {
   const password = useRef<HTMLInputElement>(null);
 
   const handleButtonClick = () =>{
-    //! either login the user or signup the user
+    //! either login the user or signup the user but before..
     // Validate the form data -> if fails: give error msg
 
     //* returns the value of ref variable in the form of Object
@@ -32,8 +32,15 @@ const Login = () => {
     if (!email.current || !password.current) return;
      
     const message = checkValidData(email.current.value, password.current.value);
-    console.log(message)
+    //console.log(message)
+    setErrorMessage(message);
+
+    // Now SIGN IN/UP
   }
+
+
+
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
 
 
@@ -73,6 +80,11 @@ return(
           type="password"
           className="my-2 p-3 pl-5 text-sm bg-gray-800 text-white rounded-sm"
           placeholder="Password"/>
+
+        <p
+          className="text-red-700 text-sm font-sans font-semibold">
+          {errorMessage}
+        </p>
 
         <button
           className="my-5 p-2 bg-red-700 text-white rounded-sm"
