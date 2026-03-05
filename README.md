@@ -6,6 +6,11 @@
 - Sign Up Form
 - Form Validation
 - useRef hook
+- Firebase setup
+- Deploying app to production [3 commands(after FB CLI installation): firebase login, firebase init, firebase   deploy]
+- Create SignUp User account on firebase
+- 
+
 
 
 
