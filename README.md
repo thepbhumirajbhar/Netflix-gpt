@@ -4,6 +4,8 @@
 - Header
 - Login Form (Sign In form)
 - Sign Up Form
+- Form Validation
+- useRef hook
 
 
 
@@ -24,3 +26,8 @@
 - NetflixGPT
     -> SeachBar
     -> Movie Suggestions
+
+
+
+# Recommendations
+1. 'formik' library: helps in large form handling.
