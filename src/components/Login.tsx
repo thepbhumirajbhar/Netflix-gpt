@@ -1,6 +1,9 @@
 import Header from "./Header";
 import { useRef, useState } from "react";
 import { checkValidData } from "./utils/validate";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./utils/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
 
@@ -35,8 +38,43 @@ const Login = () => {
     //console.log(message)
     setErrorMessage(message);
 
+
+
+
+    if(message) return;     // if email/pswd = invalid; dont execute signin/signup logic
     // Now SIGN IN/UP
-  }
+
+    //Sign Up logic (from Firebase)
+    if(!isSignInForm){
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          //console.log(user)
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + '-' + errorMessage)
+        });
+
+    }
+    //Sign In logic
+    else{
+        signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        //console.log(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + '-' + errorMessage)
+      });
+    
+        }
+   }
 
 
 
@@ -51,7 +89,7 @@ const Login = () => {
 return(
   <div> 
     <Header/>
-    <div className="relative w-full h-screen">
+    <div className="relative w-full min-h-screen">
       <img
         src = "https://assets.nflxext.com/ffe/siteui/vlv3/b9448d14-5983-4ffc-a4d6-e22223108466/web/IN-en-20260302-TRIFECTA-perspective_1ef91182-c674-4632-9bec-d185993ab154_large.jpg"/>
 
