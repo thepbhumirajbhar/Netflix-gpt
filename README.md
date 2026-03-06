@@ -9,6 +9,8 @@
 - Firebase setup
 - Deploying app to production [3 commands(after FB CLI installation): firebase login, firebase init, firebase   deploy]
 - Create SignUp User account on firebase
+- Implement Sign In user API
+- Redux store Setup-UserSlice (to store user data after signIn/signUp)
 - 
 
 
