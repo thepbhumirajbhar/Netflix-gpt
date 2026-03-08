@@ -5,7 +5,16 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { updateProfile } from "firebase/auth";
+
+
+
+
+
+
+
 
 const Login = () => {
 
@@ -54,8 +63,21 @@ const Login = () => {
           const user = userCredential.user;
           //console.log(user)
 
+
+          //TODO: Update the user pfp and name next to user-icon as soon as User Registered.
+          updateProfile(user, {
+            displayName: name.current.value, 
+            photoURL: "https://static.vecteezy.com/system/resources/previews/070/445/714/large_2x/portrait-of-lioness-showing-power-and-elegance-in-wildlifegraphy-photo.jpg"
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            setErrorMessage(error.message)
+          });
+
+
           //TODO: Once signin/up -> naviagte the user to browse page
-         navigate("/broswe")
+         navigate("/browse")
         })
         .catch((error) => {
           const errorCode = error.code;
