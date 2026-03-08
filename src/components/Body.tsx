@@ -41,11 +41,15 @@ const Body = () =>{
          //* const uid = user.uid;
 
          // for email, name: 
-         const {uid, email, displayName} = user;
+         const {uid, email, displayName,photoURL} = user;
 
 
          //TODO: dispatch the action
-         dispatch(addUser({uid: uid, email: email, Name: displayName}))}
+         dispatch(addUser(
+           {uid: uid, 
+            email: email, 
+            displayName: displayName,
+            photoURL: photoURL,}))}
 
 
        else {
