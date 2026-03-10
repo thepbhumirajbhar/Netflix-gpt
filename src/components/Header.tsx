@@ -61,14 +61,10 @@ const Header = () => {
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
-    // Sign-out successful.
-    //TODO: navigate to home page
-    navigate("/")
-
+      // Sign-out successful.
 
     }).catch((error) => {
       // An error happened.
-      navigate("/error")
     });
   }
 
