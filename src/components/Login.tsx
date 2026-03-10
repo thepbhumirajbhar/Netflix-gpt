@@ -8,6 +8,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "./utils/userSlice";
+import { HOME_BG_IMAGE, USER_ICON } from "./utils/constants";
 
 
 
@@ -72,7 +73,7 @@ const Login = () => {
           //TODO: Update the user pfp and name next to user-icon as soon as User Registered.
           updateProfile(user, {
             displayName: name.current?.value, 
-            photoURL: "https://static.vecteezy.com/system/resources/previews/070/445/714/large_2x/portrait-of-lioness-showing-power-and-elegance-in-wildlifegraphy-photo.jpg"
+            photoURL: USER_ICON,
           })
           .then(() => {
             // Profile updated!
@@ -119,15 +120,12 @@ const Login = () => {
 
 
 
-
-
-
 return(
   <div> 
     <Header/>
     <div className="relative w-full min-h-screen">
       <img
-        src = "https://assets.nflxext.com/ffe/siteui/vlv3/b9448d14-5983-4ffc-a4d6-e22223108466/web/IN-en-20260302-TRIFECTA-perspective_1ef91182-c674-4632-9bec-d185993ab154_large.jpg"/>
+        src = {HOME_BG_IMAGE}/>
 
      <form 
         onSubmit={(e) => e.preventDefault()}                    //prevents the form from submitting
