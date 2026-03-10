@@ -7,4 +7,11 @@ export const HOME_BG_IMAGE = "https://assets.nflxext.com/ffe/siteui/vlv3/b9448d1
 export const USER_ICON = "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
 
 
-                         
+// It acts as a secure digital ID card that authorizes your app to actually fetch real movie data from the TMDB database.
+export const API_OPTIONS =  {
+                              method: 'GET',
+                              headers: {
+                                accept: 'application/json',
+                                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTQ5ZjI2ZWFiYzIwNGFmYzI3Y2EyMWQxODZhMTI2MyIsIm5iZiI6MTc3MzE0MTgyNS43NzYsInN1YiI6IjY5YWZmZjQxOTFhMjIxM2E4NDRlYmFhMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rPqckN8tLWPKe-jEVDiprkgzl23YhzP-aqNTO4fV3yk'
+                              }
+                            };                            
