@@ -2,8 +2,11 @@
 
 import { useEffect } from "react";
 import { API_OPTIONS } from "./utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "./utils/movieSlice";
+import type { RootState } from "./utils/appStore";
+
+
 
 interface VideoBgProp {
   movieId: number;
@@ -12,6 +15,9 @@ interface VideoBgProp {
 const VideoBG = ({movieId}: VideoBgProp) => {
 
   const dispatch = useDispatch()
+
+  //Getting trailerVideo from store
+  const trailerVideo = useSelector((store: RootState)=> store.movies?.trailerVideo)
   
 
   const getMovieVideos = async () => {
@@ -24,7 +30,7 @@ const VideoBG = ({movieId}: VideoBgProp) => {
 
        // multiple videos have type = trailer -> take 0th element if no type then 0th element from list 
     const trailer = filterData.length ? filterData[0] : json.results[0];
-       console.log(trailer)
+       //console.log("trailer",trailer)
 
     //adding trailer to store
     dispatch(addTrailerVideo(trailer))   
@@ -43,7 +49,7 @@ const VideoBG = ({movieId}: VideoBgProp) => {
     <div>
      <iframe 
         className="w-full aspect-video border-none"
-        src="https://www.youtube.com/embed/AFuE1LRxm80?si=E1lK2fsyFSmyZM74" 
+        src={`https://www.youtube.com/embed/${trailerVideo?.key}?si=E1lK2fsyFSmyZM74`}
         title="YouTube video player" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
         referrerPolicy="strict-origin-when-cross-origin" 
