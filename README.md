@@ -11,9 +11,12 @@
 - Create SignUp User account on firebase
 - Implement Sign In user API
 - Redux store Setup-UserSlice (to store user data after signIn/signUp)
-- 
-
-
+- Implemented sign out feature
+- Update Profile
+- BugFix: Signup user display name & profile picture update
+- Unsubscribed to the onAuthStateChanged call back
+- BugFix: Redirect user to browse page if logged in and home page if not logged in
+- Add hardcoded values to the CONSTANT folder
 
 
 
