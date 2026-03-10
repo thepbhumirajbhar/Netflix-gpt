@@ -15,9 +15,13 @@ const MainContainer = () => {
   if(movies === null) return;
   const mainMovie = movies[0];
 
+  const {original_title, overview} = mainMovie;
+
+
+
   return (
     <div>
-      <VideoTitle />
+      <VideoTitle title={original_title} overview={overview}/>
       <VideoBG />
     </div>
   )
