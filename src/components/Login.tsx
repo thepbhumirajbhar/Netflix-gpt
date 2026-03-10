@@ -8,6 +8,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "./utils/userSlice";
 
 
 
@@ -20,13 +22,15 @@ const Login = () => {
 
   const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const dispatch = useDispatch();
 
   const toggleSignInForm = () =>{
     setIsSignInForm(!isSignInForm)
   }
 
 
-
+  const name = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
@@ -57,7 +61,10 @@ const Login = () => {
 
     //Sign Up logic (from Firebase)
     if(!isSignInForm){
-      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+      createUserWithEmailAndPassword(
+        auth, 
+        email.current?.value, 
+        password.current?.value)
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
@@ -66,50 +73,54 @@ const Login = () => {
 
           //TODO: Update the user pfp and name next to user-icon as soon as User Registered.
           updateProfile(user, {
-            displayName: name.current.value, 
-            photoURL: "https://static.vecteezy.com/system/resources/previews/070/445/714/large_2x/portrait-of-lioness-showing-power-and-elegance-in-wildlifegraphy-photo.jpg"
-          }).then(() => {
+            displayName: name.current?.value, 
+            photoURL: "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
+          })
+          .then(() => {
             // Profile updated!
-            // ...
-          }).catch((error) => {
-            setErrorMessage(error.message)
+            const {uid, email, displayName, photoURL} = auth.currentUser!;
+                     //TODO: Dispatch to Redux again to OVERWRITE the blank data from the listener
+                     dispatch(
+                      addUser({
+                        uid: uid, 
+                        email: email || "", 
+                        displayName: displayName || "",
+                        photoURL: photoURL || ""})
+                      );
+                      navigate("/browse")
+                      })
+            .catch((error) => {
+            setErrorMessage(error.message);
           });
-
-
-          //TODO: Once signin/up -> naviagte the user to browse page
-         navigate("/browse")
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + '-' + errorMessage)
+          setErrorMessage(errorCode + '-' + errorMessage);
         });
-
-    }
+      }
     //Sign In logic
     else{
         signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        //console.log(user)
-
-         //TODO: Once signin/up -> naviagte the user to browse page
-         navigate("/browse")
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrorMessage(errorCode + '-' + errorMessage)
-      });
-    
-        }
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            //console.log(user)
+          
+             //TODO: Once signin/up -> naviagte the user to browse page
+             navigate("/browse");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErrorMessage(errorCode + '-' + errorMessage)
+          });
+    }
    }
 
 
 
-  const [errorMessage, setErrorMessage] = useState<null | string>(null);
-
+  
 
 
 
