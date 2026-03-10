@@ -70,7 +70,7 @@ const Header = () => {
     });
   }
 
-  console.log("Current user from Redux:", user);
+  //console.log("Current user from Redux:", user);
 
 
   
@@ -85,9 +85,9 @@ const Header = () => {
 
      {/* Conditional Check : ONLY render this div if 'user' is NOT null */}
       {user?.uid && (
-        <div className="p-2 flex flex-col gap-1 items-center">
+        <div className="p-2 flex flex-col gap-2 items-center">
           <img
-            className="w-10 h-10"
+            className="w-10 h-12 pt-2"
             src={user.photoURL}
             alt="user-icon"/>
 
