@@ -17,8 +17,8 @@ const VideoBG = ({movieId}: VideoBgProp) => {
 
     const filterData = json.results. filter((video:any) => video.type === "Trailer")
     console.log("Filtering Trailer from all videos",filterData)
-       // if multiple videos have type = trailer
-    const trailer = filterData[0];
+       // multiple videos have type = trailer -> take 0th element if no type then 0th element from list 
+    const trailer = filterData.length ? filterData[0] : json.results[0];
 
   };
 
