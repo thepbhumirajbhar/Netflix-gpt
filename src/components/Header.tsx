@@ -21,6 +21,8 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const showGptSearch = useSelector((store: RootState) => store.gpt.showGptSearch)
+
 
   //? Signup/in: add data to redux store ? --> user data can be needed anywhere 
   //* API for.? whenever user signin/up: add him to the store, signOut: remove from store
@@ -105,13 +107,15 @@ const Header = () => {
       {user?.uid && (
         <div className="flex gap-2 items-center">
 
-          <select className="text-white" onClick={handleLanguageChange}>
+          {showGptSearch && (
+            <select className="text-white" onClick={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option value={lang.identifier} key={lang.identifier}>
                 {lang.name}
               </option>
             ))}
-          </select>
+          </select>)
+          }
         
           <button className="text-black text-sm gap-1 px-2 py-1 m-6 flex bg-gray-300 rounded-md"
                   onClick={handleGptSearchClick}>
