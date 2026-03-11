@@ -14,7 +14,7 @@ const MovieList = ({title, movies}: MovieListProps) => {
   console.log("MovieList: ",movies)
 
   return (
-    <div className="bg-black px-6">
+    <div className=" px-6">
       <h1 className="text-xl text-white pb-2 pt-7">{title}</h1>
       <div className="flex overflow-x-scroll">
         <div className="flex gap-5">
