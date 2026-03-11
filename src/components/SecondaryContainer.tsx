@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import MovieCard from "./MovieCard";
 import MovieList from "./MovieList";
 import type { RootState } from "./utils/appStore";
 
@@ -18,7 +17,7 @@ const SecondaryContainer = () => {
       <div className="-mt-52 relative z-30">
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
         <MovieList title={"Popular"} movies={movies.popularMovies}/>
-        <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
+        <MovieList title={"Top Rated Movies"} movies={movies.topRatedMovies}/>
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
