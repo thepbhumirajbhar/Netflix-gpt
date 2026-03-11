@@ -120,9 +120,12 @@ const Header = () => {
           <button className="text-black text-sm gap-1 px-2 py-1 m-6 flex bg-gray-300 rounded-md"
                   onClick={handleGptSearchClick}>
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-4">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-            </svg> GPT Search
+            {showGptSearch ? "Home" : 
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg> "GPT Search"
+                </>}
 
           </button>
 
