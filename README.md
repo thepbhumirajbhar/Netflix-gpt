@@ -1,6 +1,6 @@
 # Netflix-gpt 
-- using Vite Bundler
-- configured tailwindCSS
+- Using Vite Bundler
+- Configured tailwindCSS
 - Header
 - Login Form (Sign In form)
 - Sign Up Form
@@ -17,7 +17,17 @@
 - Unsubscribed to the onAuthStateChanged call back
 - BugFix: Redirect user to browse page if logged in and home page if not logged in
 - Add hardcoded values to the CONSTANT folder
-
+- Register TMDB API & get access token
+- Get Data from TMDB, nowPlayingMovies API
+- Custom hook for NowPlayingMovies
+- Update Store with movie data
+- Planning for Main Conatiner and Secondary Container
+- Fetch data for trailer video
+- Update store with Trailer Video data
+- Embedded the youtube video and make it autoplay + mute
+- Tailwind Classes for Styling
+- Build Secondary Container
+- 
 
 
 # Features
