@@ -11,7 +11,7 @@ interface MovieListProps {
 const MovieList = ({title, movies}: MovieListProps) => {
 
   if(movies === null) return null;
-  console.log("MovieList: ",movies)
+  //console.log("MovieList: ",movies)
 
   return (
     <div className=" px-6">
