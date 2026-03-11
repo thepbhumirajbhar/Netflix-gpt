@@ -27,6 +27,11 @@
 - Embedded the youtube video and make it autoplay + mute
 - Tailwind Classes for Styling
 - Build Secondary Container
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Tailwind for Styling 
+- usepopularMovies Custom hook
 - 
 
 
