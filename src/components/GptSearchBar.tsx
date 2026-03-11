@@ -1,4 +1,4 @@
-
+import lang from "./utils/languageConstants";
 
 
 
@@ -10,10 +10,10 @@ const GptSearchBar = () => {
         <input 
           type="text" 
           className="m-2 p-2 bg-amber-50 col-span-9"
-          placeholder="What would you like to watch today..?"/>
+          placeholder={lang.hindi.gptPlaceHolderText}/>
 
         <button className="px-2 m-2 bg-red-700 text-white rounded-md col-span-3">
-          Search
+          {lang.hindi.search}
         </button>
 
       </form>
