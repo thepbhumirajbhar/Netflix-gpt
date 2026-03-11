@@ -85,14 +85,23 @@ const Header = () => {
 
      {/* Conditional Check : ONLY render this div if 'user' is NOT null */}
       {user?.uid && (
-        <div className="p-2 flex flex-col gap-2 items-center">
+        <div className="flex gap-2 items-center">
+        
+          <button className="text-black text-sm gap-1 px-2 py-1 m-6 flex bg-gray-300 rounded-md">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+            </svg> GPT Search
+
+          </button>
+
           <img
-            className="w-10 h-12 pt-2"
+            className="w-10 h-10"
             src={user.photoURL}
             alt="user-icon"/>
 
           <button 
-            className="bg-red-700 p-1 text-white font-bold border-2 border-red-800"
+            className="bg-red-700 text-white font-bold border-2 border-red-800 px-2"
             onClick={handleSignOut}>
               Sign Out
           </button>
@@ -104,3 +113,9 @@ const Header = () => {
 }
 
 export default Header;
+
+
+
+
+
+
