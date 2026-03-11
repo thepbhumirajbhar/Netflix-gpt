@@ -32,7 +32,9 @@
 - TMDB Image CDN URL
 - Tailwind for Styling 
 - usepopularMovies Custom hook
+- GPT search feature
 - 
+
 
 
 # Features
