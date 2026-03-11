@@ -1,4 +1,4 @@
-import {LOGO} from "./utils/constants";
+import {LOGO, SUPPORTED_LANGUAGES} from "./utils/constants";
 import { signOut } from "firebase/auth";
 import {auth} from "./utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -98,6 +98,14 @@ const Header = () => {
      {/* Conditional Check : ONLY render this div if 'user' is NOT null */}
       {user?.uid && (
         <div className="flex gap-2 items-center">
+
+          <select className="text-white">
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option value={lang.identifier} key={lang.identifier}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
         
           <button className="text-black text-sm gap-1 px-2 py-1 m-6 flex bg-gray-300 rounded-md"
                   onClick={handleGptSearchClick}>
