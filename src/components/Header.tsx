@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import {onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "./utils/userSlice";
 import { toggleGptSearchView } from "./utils/gptSlice";
+import { changeLanguage } from "./utils/configSlice";
 
 
 
@@ -86,6 +87,11 @@ const Header = () => {
   }
 
   
+  const handleLanguageChange = (e:any) => {
+    dispatch(changeLanguage(e.target.value))
+  }
+
+  
 
   return(
     <div className="absolute top-0 left-0 px-20 py-5 w-full z-10 bg-linear-to-b from-black flex justify-between">
@@ -99,7 +105,7 @@ const Header = () => {
       {user?.uid && (
         <div className="flex gap-2 items-center">
 
-          <select className="text-white">
+          <select className="text-white" onClick={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option value={lang.identifier} key={lang.identifier}>
                 {lang.name}
