@@ -9,12 +9,18 @@ interface MovieListProps {
 
 
 const MovieList = ({title, movies}: MovieListProps) => {
+
+  if(movies === null) return null;
+  console.log("MovieList: ",movies)
+
   return (
     <div>
       <div>
         <h1>{title}</h1>
         <div>
-          <MovieCard />
+          {movies.map((movie) => (
+            <MovieCard key = {movie.id} posterPath={movie.poster_path} />
+          ))}
         </div>
       </div>
     </div>

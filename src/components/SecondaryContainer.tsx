@@ -16,10 +16,9 @@ const SecondaryContainer = () => {
   return (
     <div>
       <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies}/>
-      <MovieCard />
+      
     
-    
-
+  
           {/*
             - movielist : popular
                  moviecard * n
