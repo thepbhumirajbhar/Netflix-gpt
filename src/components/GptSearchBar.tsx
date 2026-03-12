@@ -18,7 +18,6 @@ const GptSearchBar = () => {
     // console.log(searchText.current?.value)
 
     //TODO: Make an api call to GPT API and get movie results
-    
   }
 
 
