@@ -40,12 +40,14 @@ const GptSearchBar = () => {
 
     //! Pretend this is what the AI responded with!
     const dummyGptMovies = ["Hera Pheri", "Andaz Apna Apna", "Chup Chup Ke", "Dhamaal", "Golmaal"];
-    
     console.log("Mock AI Response: ", dummyGptMovies);
     
-    // TODO: Search TMDB for these 5 movies one by one...
-    
 
+    // TODO: Search TMDB for these 5 movies one by one...
+    const data = dummyGptMovies.map((movie: string) => {
+      searchMovieTMDB(movie)
+    })
+    //? Since searchMovieTMDB is an async function -> returns array of promises & not result of Movie Search 
   }
 
 
