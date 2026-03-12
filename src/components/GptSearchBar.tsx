@@ -2,6 +2,8 @@ import { useRef } from "react";
 import type { RootState } from "./utils/appStore";
 import lang from "./utils/languageConstants";
 import { useSelector } from "react-redux";
+import client from "./utils/openai";
+import { API_OPTIONS } from "./utils/constants";
 
 
 
@@ -10,15 +12,42 @@ const GptSearchBar = () => {
   const langKey = useSelector((store: RootState) => store.config.lang) as keyof typeof lang;
   const searchText = useRef<HTMLInputElement>(null);
 
-  const handleGptSearchClick = () => {
+  //TODO: Search movie in TMDB (fetching search API)
+  const searchMovieTMDB = async (movie : string) => {
+    const data = await fetch(`https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=en-US&page=1`, API_OPTIONS)
 
+    const json = await data.json()
+
+    return json.returns;
+  }
+
+
+  const handleGptSearchClick = async () => {
     //early return
     if (!searchText.current) return;
 
     // console.log(searchText.current?.value)
 
-    //TODO: Make an api call to GPT API and get movie results
+    //TODO: Make an api call to GPT API and get movie results(!..PAID..!)
+    // const gptResults = await client.chat.completions.create({
+    //         model: 'gpt-5.2',
+    //         messages: [
+    //                     { role: 'developer', content: 'Talk like a pirate.' },
+    //                     { role: 'user', content: searchText.current?.value },
+    //                   ],
+    // });
+    //console.log(gptResults.choices[0].message.content);
+
+    //! Pretend this is what the AI responded with!
+    const dummyGptMovies = ["Hera Pheri", "Andaz Apna Apna", "Chup Chup Ke", "Dhamaal", "Golmaal"];
+    
+    console.log("Mock AI Response: ", dummyGptMovies);
+    
+    // TODO: Search TMDB for these 5 movies one by one...
+    
+
   }
+
 
 
  
