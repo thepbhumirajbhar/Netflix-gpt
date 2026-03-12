@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "./utils/appStore";
+import MovieList from "./MovieList";
 
 
 
@@ -7,14 +8,16 @@ import type { RootState } from "./utils/appStore";
 const GptMovieSuggestions = () => {
 
   const {movieNames, movieResults} = useSelector((store:RootState) => store.gpt)
-  if (!movieNames) return null;
+  if (!movieNames || !movieResults) return null;
 
 
   return (
     <div className="bg-black text-white m-5 p-4">
-      {movieNames.join(", ")}
+       <div>
+         <MovieList title={movieNames[0]} movies={movieResults[0]}/>
+       </div>
     </div>
-  )
+  ) 
 }
 
 
