@@ -1,9 +1,10 @@
 import { useRef } from "react";
 import type { RootState } from "./utils/appStore";
 import lang from "./utils/languageConstants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import client from "./utils/openai";
 import { API_OPTIONS } from "./utils/constants";
+import { addGptMovieResult } from "./utils/gptSlice";
 
 
 
@@ -11,6 +12,9 @@ const GptSearchBar = () => {
 
   const langKey = useSelector((store: RootState) => store.config.lang) as keyof typeof lang;
   const searchText = useRef<HTMLInputElement>(null);
+  const dispatch = useDispatch();
+
+
 
   //TODO: Search movie in TMDB (fetching search API)
   const searchMovieTMDB = async (movie : string) => {
@@ -18,8 +22,9 @@ const GptSearchBar = () => {
 
     const json = await data.json()
 
-    return json.returns;
+    return json.results;
   }
+
 
 
   const handleGptSearchClick = async () => {
@@ -44,10 +49,17 @@ const GptSearchBar = () => {
     
 
     // TODO: Search TMDB for these 5 movies one by one...
-    const data = dummyGptMovies.map((movie: string) => {
-      searchMovieTMDB(movie)
+    const promiseArray = dummyGptMovies.map((movie: string) => {
+      return searchMovieTMDB(movie)
     })
     //? Since searchMovieTMDB is an async function -> returns array of promises & not result of Movie Search 
+
+    const tmdbResults = await Promise.all(promiseArray)
+    console.log(tmdbResults)
+
+    //Pushing it to the store
+    dispatch(addGptMovieResult(tmdbResults));
+
   }
 
 
