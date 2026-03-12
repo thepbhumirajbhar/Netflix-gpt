@@ -1,10 +1,11 @@
 //TODO: make API call to fetch Trailer and update the store. Since getNowPlayingMovies API doesnot have videos
 
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addTrailerVideo } from "../utils/movieSlice";
 import { API_OPTIONS } from "../utils/constants";
+import type { RootState } from "../utils/appStore";
 
 
 
@@ -13,6 +14,8 @@ import { API_OPTIONS } from "../utils/constants";
 const useMovieTrailer = (movieId:number) => {
 
   const dispatch = useDispatch()
+  const movieTrailer = useSelector((store: RootState) => store.movies.trailerVideo)
+
 
   const getMovieVideos = async () => {
     const data = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos`, API_OPTIONS)
@@ -32,7 +35,7 @@ const useMovieTrailer = (movieId:number) => {
   };
 
   useEffect(() =>{
-    getMovieVideos();
+    !movieTrailer && getMovieVideos();
   }, [])
 }
 
