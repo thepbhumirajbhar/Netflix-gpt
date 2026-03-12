@@ -1,12 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+// Tell TypeScript exactly what this slice holds
+interface gptState {
+  showGptSearch: boolean,
+  movieNames: string [] | null,
+  movieResults: string[] | null
+}
+
+// Apply the blueprint right here
+const initialState: gptState = {
+  showGptSearch: false,
+  movieNames: null,
+  movieResults: null
+}
+
+
+
 const gptSlice = createSlice({
   name: "gpt",
-  initialState: {
-    showGptSearch: false,
-    movieNames: null,
-    movieResults: null
-  },
+  initialState,
   reducers:{
     toggleGptSearchView: (state) => {
       state.showGptSearch = !state.showGptSearch;
