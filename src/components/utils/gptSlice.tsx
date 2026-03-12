@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 interface gptState {
   showGptSearch: boolean,
   movieNames: string [] | null,
-  movieResults: string[] | null
+  movieResults: any[][] | null
 }
 
 // Apply the blueprint right here
