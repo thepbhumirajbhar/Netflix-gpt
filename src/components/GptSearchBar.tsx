@@ -58,7 +58,7 @@ const GptSearchBar = () => {
     console.log(tmdbResults)
 
     //Pushing it to the store
-    dispatch(addGptMovieResult(tmdbResults));
+    dispatch(addGptMovieResult({movieNames: dummyGptMovies, movieResults: tmdbResults}));
 
   }
 
