@@ -5,6 +5,9 @@ interface MovoeCardProps{
 }
 
 const MovieCard = ({posterPath}: MovoeCardProps) => {
+  // it wont show movies whose poster is absent 
+  if(!posterPath) return null;
+
   return (
     <div className="w-40">
       <img src={IMG_CDN_URL + posterPath} alt= "Movie Poster"/>
