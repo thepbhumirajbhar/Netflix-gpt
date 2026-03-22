@@ -33,7 +33,17 @@
 - Tailwind for Styling 
 - usepopularMovies Custom hook
 - GPT search feature
-- 
+- GPT Search Bar
+- Multi-language feature
+- Integrate GPT APIs (Get Open AI Api key)
+- Gpt Search Api call
+- fetched gptMoviesSuggestions from TMDB
+- Created gptSlice, added data
+- Reused Movie List omponent to make movie suggetsion container 
+- Memoization 
+- Added .env file
+- Adding .env file to gitignore
+- Made the Site Responsive
 
 
 
@@ -52,7 +62,7 @@
 
 - NetflixGPT
     -> SeachBar
-    -> Movie Suggestions
+    -> Movie Suggestions 
 
 
 
