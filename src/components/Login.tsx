@@ -130,7 +130,7 @@ return(
 
      <form 
         onSubmit={(e) => e.preventDefault()}                    //prevents the form from submitting
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-1 bg-black/80 w-9/12 md:w-3/12 h-7/12 p-7 md:p-10">
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-1 bg-black/80 w-9/12 md:w-3/12 h-6/12 md:h-7/12 p-7 md:p-10">
 
         <h1 className="text-white text-2xl md:text-3xl font-bold pb-4">
           {isSignInForm ? 'Sign In' : 'Sign Up'}
