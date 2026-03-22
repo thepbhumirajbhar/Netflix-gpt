@@ -12,7 +12,7 @@ const MainContainer = () => {
   const movies = useSelector((store: RootState) => store.movies?.nowPlayingMovies)
 
   //Early return 
-  if(movies === null) return;
+  if(!movies) return;
   const mainMovie = movies[0];
   //console.log("Main movie", mainMovie)
 
@@ -22,7 +22,7 @@ const MainContainer = () => {
 
 
   return (
-    <div>
+    <div className="pt-[45%] md:pt-0 bg-black">
       <VideoTitle title={original_title} overview={overview}/>
       <VideoBG movieId={id}/>
     </div>

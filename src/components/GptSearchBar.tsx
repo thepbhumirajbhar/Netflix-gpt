@@ -45,7 +45,7 @@ const GptSearchBar = () => {
 
     //! Pretend this is what the AI responded with!
     const dummyGptMovies = ["Hera Pheri", "Andaz Apna Apna", "Chup Chup Ke", "Dhamaal", "Golmaal"];
-    console.log("Mock AI Response: ", dummyGptMovies);
+    //console.log("Mock AI Response: ", dummyGptMovies);
     
 
     // TODO: Search TMDB for these 5 movies one by one...
@@ -68,8 +68,8 @@ const GptSearchBar = () => {
 
 
   return (
-    <div className="pt-[12%] flex justify-center">
-      <form className= "bg-black grid grid-cols-12 w-1/2 "
+    <div className="pt-[50%] md:pt-[10%] flex justify-center">
+      <form className= "bg-black grid grid-cols-12 md:w-1/2 w-fit"
             onSubmit={(e)=>e.preventDefault()}>
 
         <input  

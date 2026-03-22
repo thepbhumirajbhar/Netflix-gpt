@@ -96,16 +96,16 @@ const Header = () => {
   
 
   return(
-    <div className="absolute top-0 left-0 px-20 py-5 w-full z-10 bg-linear-to-b from-black flex justify-between">
+    <div className="absolute top-0 left-0 px-20 py-5 w-full z-10 bg-linear-to-b from-black flex flex-col md:flex-row md:justify-between">
       <img
-      className="w-48"
+      className="w-48 mx-auto md:mx-0"
       alt="Logo"
       src = {LOGO}/>
 
 
      {/* Conditional Check : ONLY render this div if 'user' is NOT null */}
       {user?.uid && (
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center justify-between">
 
           {showGptSearch && (
             <select className="text-white" onClick={handleLanguageChange}>
@@ -124,13 +124,13 @@ const Header = () => {
                 <>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="size-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg> "GPT Search"
+                  </svg>GPT Search
                 </>}
 
           </button>
 
           <img
-            className="w-10 h-10"
+            className="hidden md:block w-10 h-10"
             src={user.photoURL}
             alt="user-icon"/>
 
