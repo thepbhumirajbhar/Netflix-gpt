@@ -9,7 +9,7 @@ const MovieCard = ({posterPath}: MovoeCardProps) => {
   if(!posterPath) return null;
 
   return (
-    <div className="w-40">
+    <div className="w-36 md:w-40">
       <img src={IMG_CDN_URL + posterPath} alt= "Movie Poster"/>
     </div>
   )

@@ -12,7 +12,7 @@ export const API_OPTIONS =  {
                               method: 'GET',
                               headers: {
                                 accept: 'application/json',
-                                Authorization: 'Bearer' + import.meta.env.VITE_TMDB_KEY
+                                Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}`
                               }
                             };                            
 
@@ -29,3 +29,5 @@ export const SUPPORTED_LANGUAGES = [
 
 
 export const OPEN_AI_KEY = import.meta.env.VITE_OPENAI_KEY;
+
+console.log("My TMDB Token is:", import.meta.env.VITE_TMDB_KEY);

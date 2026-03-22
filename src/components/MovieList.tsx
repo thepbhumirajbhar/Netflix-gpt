@@ -10,11 +10,11 @@ interface MovieListProps {
 
 const MovieList = ({title, movies}: MovieListProps) => {
 
-  if(movies === null) return null;
+  if (!movies) return null;
   //console.log("MovieList: ",movies)
 
   return (
-    <div className=" px-6">
+    <div className="md:px-6">
       <h1 className="text-xl text-white pb-2 pt-7">{title}</h1>
       <div className="flex overflow-x-scroll">
         <div className="flex gap-5">
